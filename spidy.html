@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happiest Birthday My Spidyy!!</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+color:white;
+text-align:center;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background-image:url("https://images.unsplash.com/photo-1635805737707-575885ab0820");
+background-size:cover;
+background-position:center;
+overflow:hidden;
+}
+
+.overlay{
+background:rgba(0,0,0,0.65);
+padding:28px;
+border-radius:18px;
+max-width:92%;
+}
+
+h1{
+font-size:30px;
+font-weight:700;
+font-style:italic;
+margin-bottom:18px;
+}
+
+#message{
+font-size:16px;
+line-height:1.35;
+letter-spacing:0.2px;
+white-space:pre-line;
+}
+
+button{
+margin-top:25px;
+padding:14px 28px;
+border:none;
+border-radius:30px;
+background:#ff2d55;
+color:white;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 0 12px rgba(255,0,100,0.7);
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+/* KISS EXPLOSION */
+
+.kiss{
+position:fixed;
+font-size:28px;
+animation:explode 1.5s ease-out forwards;
+}
+
+@keyframes explode{
+0%{
+transform:scale(0.2);
+opacity:1;
+}
+100%{
+transform:translate(var(--x),var(--y)) scale(1.5);
+opacity:0;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>Happiest Birthday My Spidyy!! 🥂🥳🎂🕷️❤️</h1>
+
+<p id="message"></p>
+
+<button onclick="explodeKisses()">🎁 Gift</button>
+
+</div>
+
+<script>
+
+/* TYPING MESSAGE */
+
+const text = `Yeah we are miles apart but I always wanna be by your side no matter what.❤️
+Even if thousands of miles separate us, my heart still stays with you.
+
+I just want you to achieve everything you want in life.And ik youu will do it!!
+May Lord Ganesha bless you with all the knowledge, success, happiness and love.✨💌
+
+And yes mister… you are turning 19 now :)
+but don't forget you will always remain a little kiddo
+and I will always be your mommy hehe😉💗
+
+Thank you for being my SAFEST PLACE🫠.
+I'm lucky to have my very own Spidyy.
+
+Loveeee youuu soooo much 💖`;
+
+let i = 0;
+function typeWriter(){
+if(i < text.length){
+document.getElementById("message").innerHTML += text.charAt(i);
+i++;
+setTimeout(typeWriter,35);
+}
+}
+
+typeWriter();
+
+/* KISS EXPLOSION */
+
+function explodeKisses(){
+
+for(let i=0;i<40;i++){
+
+let kiss=document.createElement("div");
+kiss.className="kiss";
+kiss.innerHTML="💋";
+
+let x=(Math.random()*600)-300;
+let y=(Math.random()*600)-300;
+
+kiss.style.setProperty("--x",x+"px");
+kiss.style.setProperty("--y",y+"px");
+
+kiss.style.left=window.innerWidth/2+"px";
+kiss.style.top=window.innerHeight/2+"px";
+
+document.body.appendChild(kiss);
+
+setTimeout(()=>{
+kiss.remove();
+},1500);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
